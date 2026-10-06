@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #2b2b2b; color: #f1f1f1; font-family: Helvetica Neue, Arial, sans-serif; }
+  body { padding: 12px; }
+</style>
+</head>
+<body>
+<div id='product-component-1791260844697'></div>
+<script type="text/javascript">
+/*<![CDATA[*/
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); }
+  } else {
+    loadScript();
+  }
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var DARK = '#2b2b2b', DARKER = '#222222', MID = '#3a3a3a', BTN = '#555555', BTN_HOVER = '#6a6a6a', TEXT = '#f1f1f1', MUTED = '#c4c4c4';
+    var btn = {
+      "font-weight": "bold", "font-size": "18px", "padding-top": "17px", "padding-bottom": "17px",
+      "background-color": BTN, "color": TEXT,
+      ":hover": { "background-color": BTN_HOVER },
+      ":focus": { "background-color": BTN_HOVER }
+    };
+    var qty = {
+      "font-size": "18px", "padding-top": "17px", "padding-bottom": "17px",
+      "background-color": MID, "color": TEXT, "border-color": BTN
+    };
+    var client = ShopifyBuy.buildClient({
+      domain: 'y617uz-s8.myshopify.com',
+      storefrontAccessToken: 'aef7604a4afb62e4267913871e26d350',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('product', {
+        id: '15407751627116',
+        node: document.getElementById('product-component-1791260844697'),
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: {
+          "product": {
+            "styles": {
+              "product": {
+                "@media (min-width: 601px)": { "max-width": "100%", "margin-left": "0", "margin-bottom": "50px" },
+                "text-align": "left",
+                "background-color": DARK
+              },
+              "title": { "font-size": "26px", "color": TEXT },
+              "button": btn,
+              "quantityInput": qty,
+              "quantityIncrement": { "color": TEXT, "border-color": BTN },
+              "quantityDecrement": { "color": TEXT, "border-color": BTN },
+              "price": { "font-size": "18px", "color": TEXT },
+              "compareAt": { "font-size": "15.3px", "color": MUTED },
+              "unitPrice": { "font-size": "15.3px", "color": MUTED },
+              "description": { "color": MUTED }
+            },
+            "layout": "horizontal",
+            "contents": { "img": false, "imgWithCarousel": true, "button": false, "buttonWithQuantity": true, "description": true },
+            "width": "100%",
+            "text": { "button": "Add to cart" }
+          },
+          "productSet": {
+            "styles": { "products": { "@media (min-width: 601px)": { "margin-left": "-20px" } } }
+          },
+          "modalProduct": {
+            "contents": { "img": false, "imgWithCarousel": true, "button": false, "buttonWithQuantity": true },
+            "styles": {
+              "product": {
+                "@media (min-width: 601px)": { "max-width": "100%", "margin-left": "0px", "margin-bottom": "0px" },
+                "background-color": DARK
+              },
+              "modal": { "background-color": DARK },
+              "button": btn,
+              "quantityInput": qty,
+              "title": { "font-family": "Helvetica Neue, sans-serif", "font-weight": "bold", "font-size": "26px", "color": TEXT },
+              "price": { "font-family": "Helvetica Neue, sans-serif", "font-size": "18px", "color": TEXT },
+              "compareAt": { "font-size": "15.3px", "color": MUTED },
+              "unitPrice": { "font-size": "15.3px", "color": MUTED },
+              "description": { "color": MUTED }
+            },
+            "text": { "button": "Add to cart" }
+          },
+          "option": {
+            "styles": {
+              "label": { "color": TEXT },
+              "select": { "background-color": MID, "color": TEXT, "border-color": BTN }
+            }
+          },
+          "cart": {
+            "styles": {
+              "cart": { "background-color": DARK },
+              "header": { "background-color": DARKER, "color": TEXT },
+              "title": { "color": TEXT },
+              "close": { "color": TEXT, ":hover": { "color": "#ffffff" } },
+              "lineItems": { "background-color": DARK, "color": TEXT },
+              "footer": { "background-color": DARKER },
+              "subtotalText": { "color": TEXT },
+              "subtotal": { "color": TEXT },
+              "notice": { "color": MUTED },
+              "currency": { "color": TEXT },
+              "empty": { "color": TEXT },
+              "button": btn
+            },
+            "text": {
+              "total": "Subtotal",
+              "empty": "Your cart is empty, click on the tabs in the top-right to get started!",
+              "button": "Checkout"
+            },
+            "popup": false
+          },
+          "lineItem": {
+            "styles": {
+              "lineItem": { "background-color": DARK, "border-color": BTN },
+              "itemTitle": { "color": TEXT },
+              "variantTitle": { "color": MUTED },
+              "price": { "color": TEXT },
+              "fullPrice": { "color": TEXT },
+              "discount": { "color": MUTED },
+              "quantity": { "color": TEXT },
+              "quantityInput": { "background-color": MID, "color": TEXT, "border-color": BTN },
+              "quantityIncrement": { "color": TEXT, "border-color": BTN },
+              "quantityDecrement": { "color": TEXT, "border-color": BTN }
+            }
+          },
+          "toggle": {
+            "styles": {
+              "toggle": {
+                "font-weight": "bold",
+                "background-color": BTN,
+                ":hover": { "background-color": BTN_HOVER },
+                ":focus": { "background-color": BTN_HOVER }
+              },
+              "count": { "font-size": "18px", "color": TEXT },
+              "iconPath": { "fill": TEXT }
+            }
+          }
+        },
+      });
+    });
+  }
+})();
+/*]]>*/
+</script>
+</body>
+</html>
